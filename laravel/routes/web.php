@@ -14,6 +14,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::get('/', function () {
+    return view('welcome');
+});
+
 //a rota jogos, chama o controller CursosController, na puclic function index
 Route::get('/painel-admin', [CursosController::class, 'index']);
 
