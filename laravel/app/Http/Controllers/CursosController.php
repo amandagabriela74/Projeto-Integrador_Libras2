@@ -12,6 +12,7 @@ class CursosController extends Controller
         //dd('Olá Mundo');
         $cursos = Curso::all();
         //dd($cursos);
-        return view('painel-admin');
+      //  return view('painel-admin'); //exportar a variavel
+        return view('painel-admin', ['cursos'=> $cursos]);
     }
 }
