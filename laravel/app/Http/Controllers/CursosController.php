@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Curso;
+use Illuminate\Console\Scheduling\Event;
 use Illuminate\Http\Request;
 
 class CursosController extends Controller
@@ -51,15 +52,22 @@ class CursosController extends Controller
         'embed'=> $request->embed,
         'descricao'=> $request->descricao,
       ];
-      Curso::where('id',$id)->update($data);  //Para atualizar no banco , com o MOdel onde o id seja igual a variavel id, passa um update na variavel data
+      Curso::where('id', $id)->update($data); //Para atualizar no banco , com o MOdel onde o id seja igual a variavel id, passa um update na variavel data
       return redirect()->route('cursos-index');
+
     }
 
 
     public function destroy($id){
-      //dd($id);
-      
+      dd($id);
       Curso::where('id',$id)->delete();
       return redirect()->route('cursos-index');
     }
+/*
+    public function destroy($id){
+      Event::findOrFail($id)->delete();
+      return redirect()->route('cursos-index');
+
+    }
+*/
 }

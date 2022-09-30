@@ -9,7 +9,7 @@
     <h1>Listagem dos cursos</h1>
     <table class="table">
         <thead>
-          <tr>
+          <tr >
                 <th scope="col">#</th>
                 <th scope="col">Título</th>
                 <th scope="col">Tópico</th>
@@ -22,6 +22,7 @@
             @foreach($cursos as $curso)
           <tr>
                 <th>{{$curso->id}}</th>
+                <th>{{$curso->titulo}}</th>
                 <th>{{$curso->topico}}</th>
                 <th>{{$curso->embed}}</th>
                 <th>{{$curso->descricao}}</th>
@@ -29,7 +30,7 @@
                   <a href="{{route('cursos-edit',['id'=>$curso->id])}}">Editar</a>  
                   <form action="{{route('cursos-destroy',['id'=>$curso->id])}} method="POST">
                     @csrf
-                    @method('delete')
+                    @method('DELETE')
                     <button type="submit">Deletar</button>
                   </form>
                 </th>
